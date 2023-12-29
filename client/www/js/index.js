@@ -73,17 +73,24 @@ const addBtn = document.querySelector('#add-name-btn');
 addBtn.onclick = function () {
     const nameInput = document.querySelector('#name-input');
     const name = nameInput.value;
-    nameInput.value = "";
 
-    fetch('http://localhost:5000/insert', {
-        headers: {
-            'Content-type': 'application/json'
-        },
-        method: 'POST',
-        body: JSON.stringify({ name : name})
-    })
-    .then(response => response.json())
-    .then(data => insertRowIntoTable(data['data']));
+    // Check if the name is not blank before making the fetch request
+    if (name.trim() !== "") {
+        nameInput.value = "";
+
+        fetch('http://localhost:5000/insert', {
+            headers: {
+                'Content-type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify({ name: name })
+        })
+            .then(response => response.json())
+            .then(data => insertRowIntoTable(data['data']));
+    } else {
+        // Display an alert or handle the case where the name is blank
+        alert("Please enter a name before adding to the database.");
+    }
 }
 
 function insertRowIntoTable(data) {
