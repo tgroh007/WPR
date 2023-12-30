@@ -16,6 +16,25 @@ document.querySelector('table tbody').addEventListener('click', function(event) 
 
 const updateBtn = document.querySelector('#update-row-btn');
 const searchBtn = document.querySelector('#search-btn');
+const searchInput = document.querySelector('#search-input');
+
+searchBtn.onclick = function () {
+    search();
+};
+
+searchInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        search();
+    }
+});
+
+function search() {
+    const searchValue = searchInput.value;
+
+    fetch('http://localhost:5000/search/' + searchValue)
+        .then(response => response.json())
+        .then(data => loadHTMLTable(data['data']));
+}
 
 searchBtn.onclick = function() {
     const searchValue = document.querySelector('#search-input').value;
@@ -69,9 +88,19 @@ updateBtn.onclick = function() {
 
 
 const addBtn = document.querySelector('#add-name-btn');
+const nameInput = document.querySelector('#name-input');
 
 addBtn.onclick = function () {
-    const nameInput = document.querySelector('#name-input');
+    addNameToDatabase();
+};
+
+nameInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        addNameToDatabase();
+    }
+});
+
+function addNameToDatabase() {
     const name = nameInput.value;
 
     // Check if the name is not blank before making the fetch request
@@ -92,6 +121,7 @@ addBtn.onclick = function () {
         alert("Please enter a name before adding to the database.");
     }
 }
+
 
 function insertRowIntoTable(data) {
     console.log(data);
