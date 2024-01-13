@@ -31,10 +31,17 @@ searchInput.addEventListener('keydown', function (event) {
 function search() {
     const searchValue = searchInput.value;
 
-    fetch('http://localhost:5000/search/' + searchValue)
-        .then(response => response.json())
-        .then(data => loadHTMLTable(data['data']));
+    // Check if the searchValue is not blank before making the fetch request
+    if (searchValue.trim() !== "") {
+        fetch('http://localhost:5000/search/' + searchValue)
+            .then(response => response.json())
+            .then(data => loadHTMLTable(data['data']));
+    } else {
+        // Display an alert or handle the case where the search value is blank
+        alert("Please enter a search value before searching.");
+    }
 }
+
 
 searchBtn.onclick = function() {
     const searchValue = document.querySelector('#search-input').value;
