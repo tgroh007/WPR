@@ -42,14 +42,19 @@ function search() {
     }
 }
 
+// Add a check for the search input value before invoking the search function
+searchBtn.onclick = function () {
+    const searchValue = searchInput.value;
 
-searchBtn.onclick = function() {
-    const searchValue = document.querySelector('#search-input').value;
+    // Check if the searchValue is not blank before invoking the search function
+    if (searchValue.trim() !== "") {
+        search();
+    } else {
+        // Display an alert or handle the case where the search value is blank
+        alert("Please enter a search value before searching.");
+    }
+};
 
-    fetch('http://localhost:5000/search/' + searchValue)
-    .then(response => response.json())
-    .then(data => loadHTMLTable(data['data']));
-}
 
 function deleteRowById(id) {
     fetch('http://localhost:5000/delete/' + id, {
