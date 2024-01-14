@@ -67,7 +67,7 @@ function deleteRowById(id) {
         }
     });
 }
-
+                    // How to make edit button toggle update section
 function handleEditRow(id) {
     const updateSection = document.querySelector('#update-row');
     updateSection.hidden = !updateSection.hidden; // Toggle the visibility

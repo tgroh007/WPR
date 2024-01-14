@@ -1,11 +1,3 @@
-.label-class {
-    display: inline-block;
-    width: 100px; /* Adjust the width as needed */
-    text-align: right;
-    margin-right: 10px; /* Adjust the margin as needed */
-}
-
-
 main {
     width: 50%;
     margin: 50px auto;
