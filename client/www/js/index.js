@@ -70,9 +70,16 @@ function deleteRowById(id) {
 
 function handleEditRow(id) {
     const updateSection = document.querySelector('#update-row');
-    updateSection.hidden = false;
+    updateSection.hidden = !updateSection.hidden; // Toggle the visibility
     document.querySelector('#update-name-input').dataset.id = id;
+
+    if (!updateSection.hidden) {
+        // Fetch data or perform any other actions when the update section is shown
+        // For example, you might want to fetch the existing data for the specified ID
+        // and populate the update input field.
+    }
 }
+
 
 const updateNameInput = document.querySelector('#update-name-input');
 
