@@ -74,28 +74,39 @@ function handleEditRow(id) {
     document.querySelector('#update-name-input').dataset.id = id;
 }
 
+const updateNameInput = document.querySelector('#update-name-input');
+
+updateNameInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        updateBtn.click(); // Trigger the click event of the update button
+    }
+});
+
 updateBtn.onclick = function() {
     const updateNameInput = document.querySelector('#update-name-input');
 
-
-    console.log(updateNameInput);
-
-    fetch('http://localhost:5000/update', {
-        method: 'PATCH',
-        headers: {
-            'Content-type' : 'application/json'
-        },
-        body: JSON.stringify({
-            id: updateNameInput.dataset.id,
-            name: updateNameInput.value
+    // Check if the updated name is not blank before making the fetch request
+    if (updateNameInput.value.trim() !== "") {
+        fetch('http://localhost:5000/update', {
+            method: 'PATCH',
+            headers: {
+                'Content-type' : 'application/json'
+            },
+            body: JSON.stringify({
+                id: updateNameInput.dataset.id,
+                name: updateNameInput.value
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            location.reload();
-        }
-    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            }
+        });
+    } else {
+        // Display an alert or handle the case where the updated name is blank
+        alert("Please enter a name before updating.");
+    }
 }
 
 
