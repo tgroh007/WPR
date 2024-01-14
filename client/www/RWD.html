@@ -16,7 +16,13 @@
             text-align: auto;
             margin-right: 10px; /* Adjust the margin as needed */
         }
+    
+        .button-class {
+            width: 100px; /* Adjust the width as needed for uniformity */
+            /* You can also add other styling properties as needed */
+        }
     </style>
+    
     <link rel="stylesheet" href="css/stylesheet.css">
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
@@ -36,20 +42,24 @@
         <section hidden id="update-row">
             <label class="label-class">Name:</label>
             <input type="text" placeholder="update name" id="update-name-input">
-            <button id="update-row-btn">Update</button>
+            <button id="update-row-btn" class="button-class">Update</button>
             <br><br>
         </section>
 
-        <label class="label-class">Name:</label>
-        <input type="text" placeholder="enter name" id="name-input">
-        <button id="add-name-btn">Add Name</button>
+            <label class="label-class">Name:</label>
+            <input type="text" placeholder="enter name" id="name-input">
+            <button id="add-name-btn" class="button-class">Add Name</button>
 
-        <br><br><br>
+        <br><br>
         <div>
             <label class="label-class">Name:</label>
             <input placeholder="search by name" id="search-input">
-            <button id="search-btn">Search</button>
+            <button id="search-btn" class="button-class">Search....</button>
         </div>
+
+        <br><br>
+
+        
     </main>
 
     <!-- Adding "defer" to code will make the Browser parse(download) the HTML document and javascript document together and the code will not be executed until both docs are ready.
