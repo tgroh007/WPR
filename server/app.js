@@ -1,3 +1,6 @@
+const mysql = require('mysql') 
+const pg = require('pg'); // add this
+
 const express = require('express');
 const app = express();
 const cors = require('cors');
@@ -9,6 +12,21 @@ const dbService = require('./dbService');
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
+
+// route handler 
+
+const dbConfigs = require('./dbConfigs');
+
+app.get('/', (req, res) => {
+    const pgConn = new pg.Client(dbConfigs.pgConfig);
+
+    // use connection here
+
+    const mysqlConn = mysql.createConnection(dbConfigs.mysqlConfig);
+
+    pgConn.end();
+});
+
 
 
 // create
