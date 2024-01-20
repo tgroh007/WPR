@@ -42,14 +42,19 @@ function search() {
     }
 }
 
+// Add a check for the search input value before invoking the search function
+searchBtn.onclick = function () {
+    const searchValue = searchInput.value;
 
-searchBtn.onclick = function() {
-    const searchValue = document.querySelector('#search-input').value;
+    // Check if the searchValue is not blank before invoking the search function
+    if (searchValue.trim() !== "") {
+        search();
+    } else {
+        // Display an alert or handle the case where the search value is blank
+        alert("Please enter a search value before searching.");
+    }
+};
 
-    fetch('http://localhost:5000/search/' + searchValue)
-    .then(response => response.json())
-    .then(data => loadHTMLTable(data['data']));
-}
 
 function deleteRowById(id) {
     fetch('http://localhost:5000/delete/' + id, {
@@ -62,35 +67,53 @@ function deleteRowById(id) {
         }
     });
 }
-
+                    // How to make edit button toggle update section
 function handleEditRow(id) {
     const updateSection = document.querySelector('#update-row');
-    updateSection.hidden = false;
+    updateSection.hidden = !updateSection.hidden; // Toggle the visibility
     document.querySelector('#update-name-input').dataset.id = id;
+
+    if (!updateSection.hidden) {
+        // Fetch data or perform any other actions when the update section is shown
+        // For example, you might want to fetch the existing data for the specified ID
+        // and populate the update input field.
+    }
 }
+
+
+const updateNameInput = document.querySelector('#update-name-input');
+
+updateNameInput.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        updateBtn.click(); // Trigger the click event of the update button
+    }
+});
 
 updateBtn.onclick = function() {
     const updateNameInput = document.querySelector('#update-name-input');
 
-
-    console.log(updateNameInput);
-
-    fetch('http://localhost:5000/update', {
-        method: 'PATCH',
-        headers: {
-            'Content-type' : 'application/json'
-        },
-        body: JSON.stringify({
-            id: updateNameInput.dataset.id,
-            name: updateNameInput.value
+    // Check if the updated name is not blank before making the fetch request
+    if (updateNameInput.value.trim() !== "") {
+        fetch('http://localhost:5000/update', {
+            method: 'PATCH',
+            headers: {
+                'Content-type' : 'application/json'
+            },
+            body: JSON.stringify({
+                id: updateNameInput.dataset.id,
+                name: updateNameInput.value
+            })
         })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            location.reload();
-        }
-    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            }
+        });
+    } else {
+        // Display an alert or handle the case where the updated name is blank
+        alert("Please enter a name before updating.");
+    }
 }
 
 

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Spokane Carbon Utility
+    Digitalconsulting.cc | @Thomas Groh
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)  -->
+
+    <title>CI App</title>
+    <link rel="shortcut icon" type="image/ico" href="images/favicon/aerospace.ico">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        .label-class {
+            display: inline-block;
+            width: 50px; /* Adjust the width as needed */
+            text-align: auto;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+    
+        .button-class {
+            width: 100px; /* Adjust the width as needed for uniformity */
+            /* You can also add other styling properties as needed */
+        }
+    </style>
+    
+    <link rel="stylesheet" href="css/stylesheet.css">
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body>
+    <header>
+        <div class="container">
+          <div id="branding">
+            
+            <a href="wsr.html"><h1><span class="highlight">Weekly</span> Summary Report</h1></a>
+          </div>
+    <main>
+        <table id="table">
+            <thead>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Date Added</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <section hidden id="update-row">
+            <label class="label-class">Name:</label>
+            <input type="text" placeholder="update name" id="update-name-input">
+            <button id="update-row-btn" class="button-class">Update</button>
+            <br><br>
+        </section>
+
+            <label class="label-class">Name:</label>
+            <input type="text" placeholder="enter name" id="name-input">
+            <button id="add-name-btn" class="button-class">Add Name</button>
+
+        <br><br>
+        <div>
+            <label class="label-class">Name:</label>
+            <input placeholder="search by name..." id="search-input">
+            <button id="search-btn" class="button-class">Search</button>
+        </div>
+
+        <br><br>
+
+        
+    </main>
+
+    <!-- Adding "defer" to code will make the Browser parse(download) the HTML document and javascript document together and the code will not be executed until both docs are ready.
+    <script defer src="index.js"></script>  -->
+
+    <script src="js/index.js"></script>
+</body>
+</html>

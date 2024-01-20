@@ -2,14 +2,22 @@
 <html lang="en">
 <head>
     <!-- Spokane Carbon Utility
-	Digitalconsulting.cc | @Thomas Groh
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)  -->
+    Digitalconsulting.cc | @Thomas Groh
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)  -->
 
     <title>CI App</title>
-    <link rel="shortcut icon" type="image/ico" href="images/favicon/favicon.ico"/>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="shortcut icon" type="image/ico" href="images/favicon/aerospace.ico">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+        .label-class {
+            display: inline-block;
+            width: 100px; /* Adjust the width as needed */
+            text-align: right;
+            margin-right: 10px; /* Adjust the margin as needed */
+        }
+    </style>
+    <link rel="stylesheet" href="css/stylesheet.css">
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 </head>
 <body>
@@ -26,18 +34,19 @@
         </table>
 
         <section hidden id="update-row">
-            <label>Name:</label>
-            <input type="text" id="update-name-input">
+            <label class="label-class">Name:</label>
+            <input type="text" placeholder="update name" id="update-name-input">
             <button id="update-row-btn">Update</button>
+            <br><br>
         </section>
 
-            <label>Name:</label>
-            <input type="text" placeholder="enter name" id="name-input">
-            <button id="add-name-btn">Add Name</button>
+        <label class="label-class">Name:</label>
+        <input type="text" placeholder="enter name" id="name-input">
+        <button id="add-name-btn">Add Name</button>
 
         <br><br><br>
         <div>
-            <label>Name:</label>
+            <label class="label-class">Name:</label>
             <input placeholder="search by name" id="search-input">
             <button id="search-btn">Search</button>
         </div>
