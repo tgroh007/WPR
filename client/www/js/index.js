@@ -18,15 +18,6 @@ const updateBtn = document.querySelector('#update-row-btn');
 const searchBtn = document.querySelector('#search-btn');
 const searchInput = document.querySelector('#search-input');
 
-const dboperations = require('./dboperations');
-
-async function showUsers() {
-  const users = await dboperations.getUsers();
-  console.log(users);
-}
-
-showUsers();
-
 searchBtn.onclick = function () {
     search();
 };
