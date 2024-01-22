@@ -1,6 +1,11 @@
 const sql = require("msnodesqlv8");
+
 const connectionString = "server=.;Database=Jason;Trusted_Connection=Yes;Driver={SQL Server Native Client 11.0}";
-const query = "SELECT * from s"
+const query = "SELECT * from spokane.city"
+
+sql.query(connectionString, query, (err, result) => {
+        console.log(rows);
+});
 
 const mysql = require('mysql');
 const dotenv = require('dotenv');

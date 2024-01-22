@@ -1,2 +1,4 @@
 # ignore env files
 .env
+# ignore db config file
+dbConfigs.js

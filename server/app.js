@@ -1,9 +1,9 @@
-const mysql = require('mysql') 
-const pg = require('pg'); // add this
-
 const express = require('express');
 const app = express();
+
+dbOperation = require('./dbFiles/dbOperation');
 const cors = require('cors');
+
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -13,8 +13,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended : false }));
 
+/*
 // route handler 
-
 const dbConfigs = require('./dbConfigs');
 
 app.get('/', (req, res) => {
@@ -26,8 +26,12 @@ app.get('/', (req, res) => {
 
     pgConn.end();
 });
+*/
 
-
+// connection to slum1 server
+dbOperation.getEmployees().then(res => {
+    console.log(res);
+})
 
 // create
 app.post('/insert', (request, response) => {
@@ -87,4 +91,4 @@ app.get('/search/:name', (request, response) => {
     .catch(err => console.log(err));
 })
 
-app.listen(process.env.PORT, () => console.log('app is running'));
+app.listen(process.env.PORT, () => console.log('server & web_app is running'));
