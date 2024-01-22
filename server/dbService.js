@@ -17,7 +17,7 @@ connection.connect((err) => {
         console.log(err.message);
     }
     // shows db connection
-    // console.log('db ' + connection.state);
+     console.log('webApp ' + connection.state);
 });
 
 
