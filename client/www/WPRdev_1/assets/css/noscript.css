@@ -1,0 +1,27 @@
+/*
+	Spokane Carbon Utility
+	Digitalconsulting.cc | @Thomas Groh
+	Free for personal and commercial use under the CCA 3.0 license 
+*/
+
+/* Wrapper */
+
+	body.is-preload #wrapper:before {
+		display: none;
+	}
+
+/* Main */
+
+	body.is-preload #main .thumb {
+		pointer-events: auto;
+		opacity: 1;
+	}
+
+/* Header */
+
+	body.is-preload #header {
+		-moz-transform: none;
+		-webkit-transform: none;
+		-ms-transform: none;
+		transform: none;
+	}

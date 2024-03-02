@@ -8,7 +8,8 @@ const config                    = require('./dbConfigs')
           let pool = await sql.connect(config);
       
           // Await the query promise removes the need for a.then()
-          let result = await pool.request().query("SELECT * FROM EmployeeDemographics");
+          // let result = await pool.request().query("SELECT * FROM EmployeeDemographics");
+          let result = await pool.request().query("SELECT * FROM spokane.city");
       
           return result.recordset;
       
